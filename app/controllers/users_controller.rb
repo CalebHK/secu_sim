@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
-    @edu_option = User.edu_option
-    @gender_option = User.gender_option
-    @marital_option = User.marital_option
   end
   
   def show
@@ -14,12 +11,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to SecuSim!"
       redirect_to @user
     else
-      @edu_option = User.edu_option
-      @gender_option = User.gender_option
-      @marital_option = User.marital_option
       render 'new'
     end
   end
