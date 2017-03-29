@@ -10,4 +10,30 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
                     
   has_secure_password
+  
+  @@edu_option = [['---Select your education level---', nil],
+                  ['Primary School', 'Primary School'],
+                  ['Secondary School', 'Secondary School'],
+                  ['Undergraduate', 'Undergraduate'],
+                  ['Postgraduate', 'Postgraduate']]
+                  
+  @@gender_option =  [['---Select your gender---', nil],
+                      ['Female', 'Female'],
+                      ['Male', 'Male']]
+                      
+  @@marital_option =  [['---Select your marital status---', nil],
+                       ['Single', 'Single'],
+                       ['Married', 'Married']]
+    
+  def self.edu_option
+    @@edu_option
+  end
+  
+  def self.gender_option
+    @@gender_option
+  end
+  
+  def self.marital_option
+    @@marital_option
+  end
 end
