@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @accounts = @user.accounts.all
     redirect_to root_url and return unless @user.activate
   end
   
@@ -57,15 +58,6 @@ class UsersController < ApplicationController
     end
     
     # Before filters
-
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
     
     def correct_user
       redirect_to root_url unless current_user?(User.find(params[:id]))

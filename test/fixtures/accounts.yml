@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Stock_1"
+  cash: 29.99
+  user: calebhk
+  updated_at: <%= 10.minutes.ago %>
+
+two:
+  name: "Stock_2"
+  cash: 19.99
+  user: johnkot
+  updated_at: <%= 3.years.ago %>
+  
+three:
+  name: "Secu_1"
+  cash: 119.99
+  user: calebhk
+  updated_at: <%= 2.hours.ago %>
+
+four:
+  name: "Secu_2"
+  cash: 244.80
+  user: johnkot
+  updated_at: <%= Time.zone.now %>
+  
+five:
+  name: "Stock_5"
+  cash: 1942.56
+  user: calebhk
+  updated_at: <%= 1.seconds.ago %>
