@@ -276,7 +276,8 @@ span.picture {
   }
   .title {
     display: block;
-    margin-left: 110px;
+    margin-left: 170px;
+    font-size: 20px;
     img {
       display: block;
       padding: 5px 0;
@@ -284,7 +285,7 @@ span.picture {
   }
   .description {
     display: block;
-    margin-left: 110px;
+    margin-left: 170px;
   }
   .pubDate {
     color: $gray-light;

@@ -1,6 +1,6 @@
 <li id="account-<%= account.id %>">
   <%= link_to gravatar_for(account.user, size: 50), account.user %>
   <span class="name"><%= account.name %></span>
-  <span class="money">Total assets held: $<%= account.asset %></span>
-  <span class="money">Total cash held: $<%= account.cash %></span>
+  <span class="money">Assets held: $<%= account.asset %></span>
+  <span class="money">Cash held: $<%= account.cash %></span>
 </li>
