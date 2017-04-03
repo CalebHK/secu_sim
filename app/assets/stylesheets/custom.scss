@@ -283,10 +283,16 @@ span.picture {
     }
   }
   .description {
-    color: $gray-light;
     display: block;
     margin-left: 110px;
   }
+  .pubDate {
+    color: $gray-light;
+    font-style: italic;
+    display: block;
+    text-align: right;
+  }
+  
   .thumbnail {
     padding: 0;
     float: left;

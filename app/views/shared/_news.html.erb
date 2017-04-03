@@ -3,6 +3,6 @@
     <img class="thumbnail" src=<%= new[:img] %> alt="News" height="50">
     <span class="title"><a href=<%= new[:link] %>><strong><%= new[:title] %></strong></span></a>
     <span class="description"><%= new[:description] %></span>
-    <span class="description">Posted <%= time_ago_in_words(new[:pubdate]) %> ago.</span>
+    <span class="pubDate">Posted at <%= new[:pubdate] %>.</span>
   </li>
 <% end %>
