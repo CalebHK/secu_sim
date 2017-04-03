@@ -4,7 +4,8 @@ class AccountsController < ApplicationController
   def create
     @account = current_user.accounts.build(account_params)
     if @account.save
-      flash[:success] = "Account created!"
+      UserMailer.security_account_activation(@account).deliver_now
+      flash[:info] = "Please check your email to activate your security account."
       redirect_to current_user
     else
       render 'static_pages/home'

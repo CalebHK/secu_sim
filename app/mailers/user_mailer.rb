@@ -9,4 +9,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "SecuSim Password Reset"
   end
+  
+  def security_account_activation(account)
+    @user = account.user
+    @account = account
+    mail to: @user.email, subject: "SecuSim Security Account [#{account.name}] Activation."
+  end
 end

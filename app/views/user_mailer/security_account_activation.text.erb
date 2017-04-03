@@ -1,0 +1,5 @@
+Hi <%= @user.name %>,
+
+Welcome to the SecuSim by CalebHK! Click on the link below to activate your security account [<%= @account.name %>]:
+
+<%= edit_security_account_activation_url(@account.activation_token, account_id: @account.id) %>

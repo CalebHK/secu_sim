@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @accounts = @user.accounts.all
-    redirect_to root_url and return unless @user.activate
+    @accounts = @user.accounts.where(activated: true)
+    redirect_to root_url and return unless @user.activated
   end
   
   def create

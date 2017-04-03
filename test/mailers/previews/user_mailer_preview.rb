@@ -17,4 +17,11 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.password_reset(user)
   end
 
+  # Preview this email at
+  # http://secusim-calebhk.c9users.io/rails/mailers/user_mailer/security_account_activation
+  def security_account_activation
+    account = Account.first
+    account.activation_token = User.new_token
+    UserMailer.security_account_activation(account)
+  end
 end

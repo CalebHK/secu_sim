@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   
   # account
   resources :accounts,          only: [:create, :destroy]
+  
+  # security account activatino
+  resources :security_account_activations, only: [:edit]
 end

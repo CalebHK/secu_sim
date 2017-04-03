@@ -25,5 +25,6 @@ users = User.order(:created_at).take(6)
 4.times do
   name = Faker::Commerce.color
   cash = Faker::Number.decimal(3, 2)
-  users.each { |user| user.accounts.create!(name: name, cash: cash) }
+  users.each { |user| user.accounts.create!(name: name, cash: cash, activated: true,
+             activated_at: Time.zone.now) }
 end
