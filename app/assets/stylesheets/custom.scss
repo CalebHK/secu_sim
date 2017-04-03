@@ -263,3 +263,34 @@ span.picture {
     border: 0;
   }
 }
+
+
+/* news feed */
+
+.news {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .title {
+    display: block;
+    margin-left: 110px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .description {
+    color: $gray-light;
+    display: block;
+    margin-left: 110px;
+  }
+  .thumbnail {
+    padding: 0;
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}

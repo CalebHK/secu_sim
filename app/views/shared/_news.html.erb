@@ -1,8 +1,8 @@
 <% @news.each do |new| %>
   <li>
-    <img class="gravatar" src="/assets/News.jpg" alt="News" height="50" width="50">
-    <span class="name"><a href=<%= new[:link] %>><strong><%= new[:title] %></strong></span></a>
-    <span class="money"><%= new[:description] %></span>
-    <span class="money">Posted <%= time_ago_in_words(new[:pubdate]) %> ago.</span>
+    <img class="thumbnail" src=<%= new[:img] %> alt="News" height="50">
+    <span class="title"><a href=<%= new[:link] %>><strong><%= new[:title] %></strong></span></a>
+    <span class="description"><%= new[:description] %></span>
+    <span class="description">Posted <%= time_ago_in_words(new[:pubdate]) %> ago.</span>
   </li>
 <% end %>

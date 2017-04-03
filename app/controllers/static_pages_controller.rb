@@ -5,11 +5,12 @@ class StaticPagesController < ApplicationController
     doc = Nokogiri::XML(open("http://feeds.bbci.co.uk/news/video_and_audio/business/rss.xml#"))
     results = doc.css('item')
     @news = []
-    results.each do |result|
-      new = { 'title': result.at_css('title').content,
-              'description': result.at_css('description').content,
-              'pubdate': result.at_css('pubDate').content,
-              'link': result.at_css('link').content}
+    (0..results.count-1).each do |i|
+      new = { 'title': results[i].at_css('title').content,
+              'description': results[i].at_css('description').content,
+              'pubdate': results[i].at_css('pubDate').content,
+              'link': results[i].at_css('link').content,
+              'img': results.xpath("//media:thumbnail")[i].attr('url')}
       @news << new
     end
   end
