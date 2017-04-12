@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   
   # account
-  resources :accounts,          only: [:create, :destroy]
+  get '/accounts', to: 'static_pages#home'
+  resources :accounts
   
   # security account activatino
   resources :security_account_activations, only: [:edit]
