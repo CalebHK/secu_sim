@@ -303,8 +303,32 @@ span.picture {
 }
 
 video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.homepage-indro-signup {
+  width: inherit;
+  position: absolute;
+  color: white;
+  top: 75%;
+  text-align: center;
+  h1 {
+    font-size: 5em;
+  }
+  p {
+    font-size: 2em;
+  }
+}
+
+.header__gradient {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 0;
+    height: 110%;
+    transition: background-color 500ms;
 }
