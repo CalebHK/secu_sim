@@ -10,7 +10,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.accounts.any? %>
-      <h3>Accounts (<%= @user.accounts.count %>)</h3>
+      <h3>Accounts (<%= @user.accounts.where(activated: true).count %>)</h3>
       <ol class="accounts">
         <%= render @accounts %>
       </ol>
