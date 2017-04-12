@@ -1,4 +1,4 @@
-<% @news.each do |new| %>
+<%= news_feed("http://www.scmp.com/rss/2/feed").each do |new| %>
   <li>
     <img class="thumbnail" src=<%= new[:img] %> alt="News" height="80">
     <span class="title"><a href=<%= new[:link] %>><strong><%= new[:title] %></strong></span></a>
