@@ -4,6 +4,8 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$half-white: rgba(255, 255, 255, 0.7);
+$nav-background: rgba(51, 122, 183, 0.8);
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -35,7 +37,7 @@ textarea {
 /* navbar */
 
 .navbar-inverse {
-  background-color: #337ab7;
+  background-color: $nav-background;
   .navbar-nav > li > a {
     color: white;
   }
@@ -87,10 +89,14 @@ p {
 /* footer */
 
 footer {
+  border-radius: 5px;
+  position: fixed;
+  bottom: 0px;
+  width: inherit;
   margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  padding: 5px;
+  color: black;
+  background-color: $half-white;
   a {
     color: $gray;
     &:hover {
@@ -311,24 +317,18 @@ video {
 }
 
 .homepage-indro-signup {
+  border-radius: 10px;
   width: inherit;
   position: absolute;
-  color: white;
-  top: 75%;
+  color: black;
+  background-color: $half-white;
+  bottom: 5%;
   text-align: center;
+  padding-bottom: 20px;
   h1 {
     font-size: 5em;
   }
   p {
     font-size: 2em;
   }
-}
-
-.header__gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 110%;
-    transition: background-color 500ms;
 }
