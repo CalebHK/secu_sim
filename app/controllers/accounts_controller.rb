@@ -11,6 +11,11 @@ class AccountsController < ApplicationController
       render 'static_pages/home'
     end
   end
+  
+  def show
+    @account = Account.find(params[:id])
+    redirect_to root_url and return unless @account.activated
+  end
 
   def destroy
   end
