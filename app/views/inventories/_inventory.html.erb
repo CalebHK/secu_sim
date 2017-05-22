@@ -1,0 +1,6 @@
+<tr>
+  <td><%= inventory.code %></td>
+  <td class="right"><%= inventory.volume %> / <strong><%= inventory.activated_volume %></strong></td>
+  <td class="right"><%= number_with_precision inventory.total_cost, :precision => 3 %></td>
+  <td class="right"><%= number_with_precision inventory.total_cost / inventory.volume, :precision => 3 %></td>
+</tr>

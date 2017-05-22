@@ -1,8 +1,12 @@
 <ol class="accounts">  
-  <li id="account-<%= @account.id %>">
-    <%= link_to gravatar_for(@account.user, size: 50), @account.user %>
-    <span class="name"><%= link_to @account.name, @account %></span>
-    <span class="money">Assets held: $<%= @account.asset %></span>
-    <span class="money">Cash held: $<%= @account.cash %></span>
-  </li>
+  <%= render @account %>
 </ol>
+<table class="table table-bordered" style="table-layout: fixed">
+  <tr>
+    <th>CODE</th>
+    <th>Volume (Total/Activated)</th>
+    <th>Total Cost</th>
+    <th>Avg. Cost</th>
+  </tr>
+  <%= render @account.inventories %>
+</table>

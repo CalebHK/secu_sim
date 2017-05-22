@@ -2,6 +2,7 @@ class Account < ApplicationRecord
   attr_accessor :activation_token
   before_create :create_activation_digest
   belongs_to :user
+  has_many :inventories
   default_scope -> { order(cash: :desc) }
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 14 }

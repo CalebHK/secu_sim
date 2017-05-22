@@ -28,3 +28,15 @@ users = User.order(:created_at).take(6)
   users.each { |user| user.accounts.create!(name: name, cash: cash, activated: true,
              activated_at: Time.zone.now) }
 end
+
+accounts = Account.all
+accounts.each { |account|
+  6.times do
+    code = Faker::Internet.user_name(2..6)
+    volume = Faker::Number.number(3)
+    total_cost = Faker::Number.decimal(4, 3)
+    activated_volume = volume.to_f - 100
+    account.inventories.create!(code: code, volume: volume, total_cost: total_cost, 
+                                activated_volume: activated_volume)
+  end
+}
