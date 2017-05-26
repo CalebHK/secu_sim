@@ -3,4 +3,51 @@
   <td class="right"><%= inventory.volume %> / <strong><%= inventory.activated_volume %></strong></td>
   <td class="right"><%= number_with_precision inventory.total_cost, :precision => 3 %></td>
   <td class="right"><%= number_with_precision inventory.total_cost / inventory.volume, :precision => 3 %></td>
+  <td class="right">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalBuy-<%= inventory.code %>">
+      BUY
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalSell-<%= inventory.code %>">
+      SELL
+    </button>
+  </td>
 </tr>
+
+<!-- Modal Buy -->
+<div class="modal fade" id="myModalBuy-<%= inventory.code %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Buy <%= inventory.code %></h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Sell -->
+<div class="modal fade" id="myModalSell-<%= inventory.code %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sell <%= inventory.code %></h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
