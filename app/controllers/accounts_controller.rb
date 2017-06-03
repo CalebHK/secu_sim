@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
   
   def show
     @account = Account.find(params[:id])
-    @order = @account.orders.new
+    @order = @account.orders.build
     redirect_to root_url and return unless @account.activated
   end
 
