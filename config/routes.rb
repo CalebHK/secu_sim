@@ -32,4 +32,7 @@ Rails.application.routes.draw do
   
   # security account activatino
   resources :security_account_activations, only: [:edit]
+  
+  # order
+  resources :orders
 end

@@ -22,13 +22,32 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Buy <%= inventory.code %></h4>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+      <%= form_for(@order) do |f| %>
+        <div class="modal-body">
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :Security_Code %>
+              <%= f.text_field :code, :value => inventory.code, :disabled => true %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :Price %>
+              <%= f.text_field :price %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :Volume %>
+              <%= f.text_field :volume %>
+              <%= f.hidden_field :type, :value => 'buy' %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= content_tag :button, type: "submit", class: "btn btn-primary" do %>
+            Submit
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -41,13 +60,32 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Sell <%= inventory.code %></h4>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
+      <%= form_for(@order) do |f| %>
+        <div class="modal-body">
+          <%= render 'shared/error_messages', object: f.object %>
+          <div class="row">
+            <div class="col-md-4">
+              <%= f.label :Security_Code %>
+              <%= f.text_field :code, :value => inventory.code, :disabled => true %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :Price %>
+              <%= f.text_field :price %>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :Volume %>
+              <%= f.text_field :volume %>
+              <%= f.hidden_field :type, :value => 'buy' %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= content_tag :button, type: "submit", class: "btn btn-primary" do %>
+            Submit
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
