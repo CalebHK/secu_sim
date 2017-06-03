@@ -1,13 +1,32 @@
 <ol class="accounts">  
   <%= render @account %>
 </ol>
-<table class="table table-bordered" style="table-layout: fixed">
-  <tr>
-    <th>Security Code</th>
-    <th>Volume (Total/Activated)</th>
-    <th>Total Cost</th>
-    <th>Avg. Cost</th>
-    <th>Action</th>
-  </tr>
-  <%= render @account.inventories %>
-</table>
+
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#inventories" aria-controls="inventories" role="tab" data-toggle="tab">Inventories</a></li>
+    <li role="presentation"><a href="#all-orders" aria-controls="all-orders" role="tab" data-toggle="tab">All Orders</a></li>
+    <li role="presentation"><a href="#waiting-orders" aria-controls="waiting-orders" role="tab" data-toggle="tab">Orders In Processing</a></li>
+    <li role="presentation"><a href="#finished-orders" aria-controls="finished-orders" role="tab" data-toggle="tab">Orders Done</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="inventories">
+      <table class="table table-bordered" style="table-layout: fixed">
+        <tr>
+          <th>Security Code</th>
+          <th>Volume (Total/Activated)</th>
+          <th>Total Cost</th>
+          <th>Avg. Cost</th>
+          <th>Action</th>
+        </tr>
+        <%= render @account.inventories %>
+      </table>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="all-orders">...</div>
+    <div role="tabpanel" class="tab-pane fade" id="waiting-orders">...</div>
+    <div role="tabpanel" class="tab-pane fade" id="finished-orders">...</div>
+  </div>
+</div>
