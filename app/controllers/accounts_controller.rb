@@ -8,6 +8,7 @@ class AccountsController < ApplicationController
       flash[:info] = "Please check your email to activate your security account."
       redirect_to current_user
     else
+      @news = news_feed("http://www.scmp.com/rss/2/feed")
       render 'static_pages/home'
     end
   end
