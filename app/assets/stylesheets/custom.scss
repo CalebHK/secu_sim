@@ -6,6 +6,7 @@
 $gray-medium-light: #eaeaea;
 $half-white: rgba(255, 255, 255, 0.7);
 $nav-background: rgba(51, 122, 183, 0.8);
+$secu-blue : #337ab7;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -14,6 +15,10 @@ $nav-background: rgba(51, 122, 183, 0.8);
 }
 
 /* universal */
+.secu-blue {
+  color: $secu-blue;
+}
+
 
 body {
   padding-top: 60px;
