@@ -38,8 +38,8 @@ accounts.each { |account|
     security = Security.find_by(code: code.upcase)
     unless security
       security = Security.create!(code: code, market: "HKEX", current_price: total_cost.to_f / volume.to_f)
-      security.orders.create!(code: code, order_type: "buy", volume: 100, total_cost: 1000.0, account_id: account.id, executed: true)
-      security.orders.create!(code: code, order_type: "sell", volume: 100, total_cost: 900.0, account_id: account.id, executed: true)
+      security.orders.create!(code: code, order_type: "buy", volume: 100, total_cost: 1000.0, account_id: account.id, executed: true, price: 10.0)
+      security.orders.create!(code: code, order_type: "sell", volume: 100, total_cost: 900.0, account_id: account.id, executed: true, price: 9.0)
     end
     account.inventories.create!(code: code, volume: volume, total_cost: total_cost, 
                                 activated_volume: volume, security_id: security.id)

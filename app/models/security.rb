@@ -5,7 +5,7 @@ class Security < ApplicationRecord
                    uniqueness: { case_sensitive: false }
   before_save   :upcase_code
                    
-  def self.bunch
+  def self.batch
     file_name = Date.today.to_s+".csv"
     tdy = hk_today_midnight
     tmr = hk_tmr_midnight

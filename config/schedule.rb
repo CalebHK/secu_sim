@@ -19,9 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.day, :at => '9:30 pm' do
-  runner "Security.bunch"
+  runner "Security.batch"
 end
 
 every 1.day, :at => '10:00 pm' do
-  runner "Account.bunch"
+  runner "Account.batch"
 end
