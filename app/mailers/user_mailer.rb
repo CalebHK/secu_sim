@@ -1,5 +1,6 @@
 class UserMailer < ApplicationMailer
-
+  
+  # send activation email for user
   def account_activation(user)
     @user = user
     mail to: user.email, subject: "SecuSim Account Activation"

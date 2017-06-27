@@ -25,8 +25,23 @@
         <%= render @account.inventories %>
       </table>
     </div>
-    <div role="tabpanel" class="tab-pane fade" id="all-orders">...</div>
-    <div role="tabpanel" class="tab-pane fade" id="waiting-orders">...</div>
-    <div role="tabpanel" class="tab-pane fade" id="finished-orders">...</div>
+    <div role="tabpanel" class="tab-pane fade" id="all-orders">
+      <table class="table table-bordered" style="table-layout: fixed">
+        <%= render "shared/order_head" %>
+        <%= render @today_orders %>
+      </table>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="waiting-orders">
+      <table class="table table-bordered" style="table-layout: fixed">
+        <%= render "shared/order_head" %>
+        <%= render @processing_orders %>
+      </table>  
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="finished-orders">
+      <table class="table table-bordered" style="table-layout: fixed">
+        <%= render "shared/order_head" %>
+        <%= render @done_orders %>
+      </table>
+    </div>
   </div>
 </div>

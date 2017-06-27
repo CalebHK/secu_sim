@@ -14,6 +14,7 @@ gem 'jbuilder',       '2.4.1'
 gem 'will_paginate',  '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'nokogiri',       '1.7.1'
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'sqlite3', '1.3.12'

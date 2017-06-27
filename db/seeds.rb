@@ -35,7 +35,7 @@ accounts.each { |account|
     code = Faker::Internet.user_name(2..6)
     volume = Faker::Number.number(3)
     total_cost = Faker::Number.decimal(4, 3)
-    activated_volume = volume.to_f - 100
+    activated_volume = volume.to_f
     account.inventories.create!(code: code, volume: volume, total_cost: total_cost, 
                                 activated_volume: activated_volume)
   end

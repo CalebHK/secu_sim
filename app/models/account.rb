@@ -2,7 +2,7 @@ class Account < ApplicationRecord
   attr_accessor :activation_token
   before_create :create_activation_digest
   belongs_to :user
-  has_many :inventories
+  has_many :inventories, dependent: :destroy
   has_many :orders
   default_scope -> { order(cash: :desc) }
   validates :user_id, presence: true

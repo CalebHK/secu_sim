@@ -1,0 +1,29 @@
+<tr>
+  <td><%= order.code %></td>
+  <td class="right"><%= order.price %></td>
+  <td class="right"><%= order.volume %></td>
+  <td class="right"><%= number_with_precision order.price * order.volume, :precision => 3 %></td>
+  <td class="right"><%= order.order_type %></td>
+  <td class="right"><%= order.created_at.in_time_zone("Hong Kong").strftime("%H:%M:%S") %></td>
+  <td class="right">
+    <% if order.order_type == "cancel" %>
+      Cancel
+    <% else %>
+      <% if order.executed %>
+        Done
+      <% else %>
+        Processing...
+      <% end %>
+    <% end %>
+  </td>
+  <td class="right">
+    <% unless order.order_type == "cancel" %>
+      <%= form_for order, url: cancel_order_path(order) do |f| %>
+        <%= f.hidden_field :order_type, :value => 'cancel' %>
+        <%= content_tag :button, type: "submit", name: "commit", class: "btn btn-primary" do %>
+          Cancel
+        <% end %>
+      <% end %>
+    <% end %>
+  </td>
+</tr>

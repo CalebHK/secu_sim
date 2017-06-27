@@ -34,5 +34,9 @@ Rails.application.routes.draw do
   resources :security_account_activations, only: [:edit]
   
   # order
-  resources :orders
+  resources :orders do
+    member do
+      patch :cancel
+    end
+  end
 end
