@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-4">
               <%= f.label :Price %>
-              <%= f.number_field :price, :step => 0.01, :min => 0.01 %>
+              <%= f.number_field :price, :value => inventory.security.current_price, :step => 0.01, :min => 0.01 %>
             </div>
             <div class="col-md-4">
               <%= f.label :Volume %>
@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-4">
               <%= f.label :Price %>
-              <%= f.number_field :price, :step => 0.01, :min => 0.01 %>
+              <%= f.number_field :price, :value => inventory.security.current_price, :step => 0.01, :min => 0.01 %>
             </div>
             <div class="col-md-4">
               <%= f.label :Volume %>

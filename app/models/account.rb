@@ -20,9 +20,11 @@ class Account < ApplicationRecord
   end
   
   def bunch
-    Account.each do |account|
-      @orders = account.orders.where("created_at >= ?", hk_today_midnight)
-                              .where("created_at <= ?", hk_tmr_midnight)
+    tdy = hk_today_midnight
+    tmr = hk_tmr_midnight
+    Account.all.each do |account|
+      @orders = account.orders.where("created_at >= ?", tdy)
+                              .where("created_at <= ?", tmr)
       @orders.group_by{|item| item[:code]}.each do |key, orders|
         net_cash = 0.0
         net_volume = 0
@@ -70,4 +72,11 @@ class Account < ApplicationRecord
       self.activation_digest = User.digest(activation_token)
     end
     
+    def self.hk_today_midnight
+      Date.today.midnight.in_time_zone("Hong Kong").utc
+    end
+    
+    def self.hk_tmr_midnight
+      hk_today_midnight + 1.day
+    end
 end

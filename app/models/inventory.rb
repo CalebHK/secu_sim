@@ -1,5 +1,6 @@
 class Inventory < ApplicationRecord
   belongs_to :account
+  belongs_to :security
   default_scope -> { order(total_cost: :desc) }
   validates :account_id, presence: true
   validates :code, presence: true, length: { maximum: 6 }

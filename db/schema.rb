@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613125505) do
+ActiveRecord::Schema.define(version: 20170627134453) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name"
@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20170613125505) do
     t.string   "company"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "security_id"
     t.index ["account_id", "code"], name: "index_inventories_on_account_id_and_code"
     t.index ["account_id"], name: "index_inventories_on_account_id"
+    t.index ["security_id"], name: "index_inventories_on_security_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -51,9 +53,19 @@ ActiveRecord::Schema.define(version: 20170613125505) do
     t.datetime "executed_at"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "security_id"
     t.index ["account_id", "created_at"], name: "index_orders_on_account_id_and_created_at"
     t.index ["account_id"], name: "index_orders_on_account_id"
     t.index ["executed_at", "code"], name: "index_orders_on_executed_at_and_code"
+    t.index ["security_id"], name: "index_orders_on_security_id"
+  end
+
+  create_table "securities", force: :cascade do |t|
+    t.string   "code"
+    t.string   "market"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.decimal  "current_price"
   end
 
   create_table "users", force: :cascade do |t|

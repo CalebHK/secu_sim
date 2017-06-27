@@ -18,6 +18,10 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+every 1.day, :at => '9:30 pm' do
+  runner "Security.bunch"
+end
+
 every 1.day, :at => '10:00 pm' do
   runner "Account.bunch"
 end
