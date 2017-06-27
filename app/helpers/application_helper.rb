@@ -9,4 +9,13 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+  
+  private
+    def hk_today_midnight
+      Date.today.midnight.in_time_zone("Hong Kong").utc
+    end
+    
+    def hk_tmr_midnight
+      hk_today_midnight + 1.day
+    end
 end
