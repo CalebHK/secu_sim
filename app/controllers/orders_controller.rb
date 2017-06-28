@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
     @order.update_columns(executed: true, executed_at: Time.zone.now)
     @inventory = @account.inventories.find_by(code: @order.code)
     if @order.order_type == "buy"
-      @inventory.update_columns(activated_volume: @inventory.volume + @order.volume, volume: @inventory.volume + @order.volume, total_cost: @inventory.total_cost + @order.total_cost)
+      @inventory.update_columns(volume: @inventory.volume + @order.volume, total_cost: @inventory.total_cost + @order.total_cost)
     else
       @inventory.update_columns(volume: @inventory.volume - @order.volume, total_cost: @inventory.total_cost - @order.total_cost)
     end

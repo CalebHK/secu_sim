@@ -1,0 +1,14 @@
+<p><%= Date.today.to_s %></p>
+<p>Dear <%= @user.name %>,</p>
+<h1>ANNOUNCEMENT OF STOCK DIVIDEND PAYMENT</h1>
+<p>
+  <%= @inventory.code %> is pleased to announce the payment of a dividend to shareholders. 
+  The Directors have resolved to pay a final dividend of <%= @ratio*100 %> shares per 100 ordinary shares.
+</p>
+<p>
+  Dividend payments to all eligible registered holders have been made via SecuSim into your
+  SecuSim accounts. 
+</p>
+<p>Sincerely,</p>
+<P>Board of Directors</P>
+<p><%= @inventory.code %></p>

@@ -24,4 +24,22 @@ class UserMailerPreview < ActionMailer::Preview
     account.activation_token = User.new_token
     UserMailer.security_account_activation(account)
   end
+  
+  def stock_split
+    inventory = Inventory.first
+    ratio = 2
+    UserMailer.stock_split(inventory, ratio)
+  end
+  
+  def cash_dividend
+    inventory = Inventory.first
+    div = 10
+    UserMailer.cash_dividend(inventory, div)
+  end
+  
+  def stock_dividend
+    inventory = Inventory.first
+    ratio = 0.2
+    UserMailer.stock_dividend(inventory, ratio)
+  end
 end

@@ -1,0 +1,16 @@
+<%= Date.today.to_s %>
+
+Dear <%= @user.name %>,
+
+ANNOUNCEMENT OF STOCK DIVIDEND PAYMENT
+
+
+<%= @inventory.code %> is pleased to announce the payment of a dividend to shareholders. 
+The Directors have resolved to pay a final dividend of <%= @ratio*100 %> shares per 100 ordinary shares.
+
+Dividend payments to all eligible registered holders have been made via SecuSim into your
+SecuSim accounts. 
+
+Sincerely,
+Board of Directors
+<%= @inventory.code %>

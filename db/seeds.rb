@@ -42,7 +42,7 @@ accounts.each { |account|
       security.orders.create!(code: code, order_type: "sell", volume: 5, total_cost: 5.5, account_id: account.id, executed: true, price: 1.1)
     end
     account.inventories.create!(code: code, volume: volume, total_cost: total_cost, 
-                                activated_volume: volume, security_id: security.id)
+                                activated_volume: volume.to_f - 10, security_id: security.id)
     
   end
 }

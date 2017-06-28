@@ -40,19 +40,17 @@ class Account < ApplicationRecord
               if exe_orders_buy.present?
                 exe_orders_buy.each do |o|
                   net_volume += o.volume
-                  net_cash -= o.volume*o.price
                 end
               end
               # executed sell orders
               exe_orders_sell = exe_orders.group_by{|item| item[:order_type]}["sell"]
               if exe_orders_sell.present?
                 exe_orders_sell.each do |o|
-                  net_volume -= o.volume
                   net_cash += o.volume*o.price
                 end
               end
               inv = account.inventories.where("code = ?", key).first
-              inv.update_attributes(:volume => inv.volume + net_volume, :activated_volume => inv.activated_volume + net_volume)
+              inv.update_attributes(:activated_volume => inv.activated_volume + net_volume)
               account.update_attributes(:cash => account.cash + net_cash)
             end
             

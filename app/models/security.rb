@@ -15,8 +15,8 @@ class Security < ApplicationRecord
         net_volume = 0.0
         net_cash = 0.0
         orders = security.orders.where("created_at >= ?", tdy)
-                                 .where("created_at <= ?", tmr)
-                                 .where("executed = ?", true)
+                                .where("created_at <= ?", tmr)
+                                .where("executed = ?", true)
         if orders.count > 0
           orders.each do |order|
             if order.order_type == "buy"
@@ -34,7 +34,26 @@ class Security < ApplicationRecord
     end
   end
   
-  def self.get_price
+  def split(ratio)
+    self.inventories.each do |inv|
+      inv.update_columns(volume: inv.volume * ratio, activated_volume: inv.activated_volume * ratio)
+      UserMailer.stock_split(inv, ratio).deliver_now
+    end
+  end
+  
+  def cash_dividend(div)
+    self.inventories.each do |inv|
+      account = inv.account
+      account.update_attribute(cash: account.cash + div * inv.activated_volume)
+      UserMailer.stock_split(inv, div).deliver_now
+    end
+  end
+  
+  def stock_dividend(ratio)
+    self.inventories.each do |inv|
+      inv.update_columns(volume: inv.volume * (1 + ratio), activated_volume: inv.activated_volume * (1 + ratio))
+      UserMailer.stock_dividend(inv, ratio).deliver_now
+    end
   end
   
   private

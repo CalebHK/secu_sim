@@ -1,0 +1,26 @@
+<p><%= Date.today.to_s %></p>
+<p>Dear <%= @user.name %>,</p>
+<p>
+  I'm pleased to inform you that the Board of Directors of 
+  <%= @inventory.code %>  has authorized a split of the common stock
+  of the corporation in a ratio of <%= @ratio %>:1. Our decusion to split
+  the stock reaffirms our commitment to building shareholder value.
+</p>
+<p>
+  To user the latest technologies to serve you better, the shares amount
+  are modified in "book-entry" form, without stock certificates. Your latest 
+  share amount has been registred on the books of the Corporation maintained 
+  by SecuSim Services.
+</p>
+<p>
+  This split will not change your percentage of ownership in the Corporation 
+  and in and of itself will not be subject to income tax.
+</p>
+<p>
+  Thank you for your investment in <%= @inventory.code %>. We remain focused 
+  on our strategic plan and our commitment to our shareholders, customers, 
+  employees and communities.
+</p>
+<p>Sincerely,</p>
+<P>Board of Directors</P>
+<p><%= @inventory.code %></p>
